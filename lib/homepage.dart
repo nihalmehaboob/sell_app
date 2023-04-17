@@ -11,9 +11,9 @@ class homepage extends StatefulWidget {
   State<homepage> createState() => _homepageState();
 }
 
-class _homepageState extends State<homepage> {
-  List<Post>? p;
+List<Post>? p;
 
+class _homepageState extends State<homepage> {
   var isload = false;
   datacall() async {
     p = await remot().getcall();

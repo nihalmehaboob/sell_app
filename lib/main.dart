@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopapp/eachitem.dart';
 import 'package:shopapp/homepage.dart';
 
 void main() {
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: homepage(),
+      home: eachpage(),
     );
   }
 }
