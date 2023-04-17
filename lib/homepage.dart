@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopapp/connection.dart/httprequst.dart';
+import 'package:shopapp/provider/dataclass.dart';
 
 import 'connection.dart/modal.dart';
 
@@ -58,8 +60,13 @@ class _homepageState extends State<homepage> {
                   textAlign: TextAlign.start,
                 ),
                 trailing: Icon(
-                  Icons.star,
+                  context.read<DataClass>().check(index)
+                      ? Icons.star
+                      : Icons.straight_rounded,
                 ),
+                onTap: () {
+                  context.read<DataClass>().likeunlik(index);
+                },
               );
             }));
   }

@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopapp/homepage.dart';
+import 'package:shopapp/provider/dataclass.dart';
 
 class eachpage extends StatelessWidget {
-  const eachpage({super.key});
-
+  const eachpage(
+      {super.key, required this.index}); //index from home page readed
+  final int index;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,14 +28,18 @@ class eachpage extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12), color: Colors.purple),
             child: TextButton(
-              onPressed: () {},
+              onPressed: () {
+                context.read<DataClass>().likeunlik(index);
+              },
               child: Row(
                 children: [
                   SizedBox(
                     width: 100,
                   ),
                   Icon(
-                    Icons.star_border,
+                    context.read<DataClass>().check(index)
+                        ? Icons.star
+                        : Icons.straight_rounded,
                   ),
                   Text(
                     "LIKE IT",
