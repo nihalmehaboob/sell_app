@@ -11,6 +11,10 @@ class eachpage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text("ABOUT$p[index].id.toString()"),
+        actions: [Icon(Icons.exit_to_app)],
+      ),
       body: Column(
         children: [
           Container(

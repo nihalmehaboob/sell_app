@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shopapp/connection.dart/httprequst.dart';
+import 'package:shopapp/eachitem.dart';
 import 'package:shopapp/provider/dataclass.dart';
 
 import 'connection.dart/modal.dart';
@@ -59,13 +60,22 @@ class _homepageState extends State<homepage> {
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.start,
                 ),
-                trailing: Icon(
-                  context.read<DataClass>().check(index)
-                      ? Icons.star
-                      : Icons.straight_rounded,
+                trailing: TextButton(
+                  onPressed: () {
+                    context.read<DataClass>().likeunlik(index);
+                  },
+                  child: Icon(
+                    context.read<DataClass>().check(index)
+                        ? Icons.star
+                        : Icons.straight_rounded,
+                  ),
                 ),
                 onTap: () {
-                  context.read<DataClass>().likeunlik(index);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => eachpage(index: index)),
+                  );
                 },
               );
             }));
